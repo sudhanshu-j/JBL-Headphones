@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<!-- Declares the document type as HTML5 -->
+<html lang="en">
+  <!-- Starts the HTML document and sets the language to English -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Defines the character encoding for the document as UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Makes the page responsive, setting the viewport to match the device's width and initial scale to 1 -->
+
+    <!-- Link to the favicon, which is the icon displayed in the browser tab -->
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!-- Link to an external CSS file for Swiper (a library for creating sliders) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+
+    <!-- Link to the external CSS file for Remix Icon library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css"
+    />
+
+    <!-- Link to an external CSS file for Swiper (a library for creating sliders) -->
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css" />
+
+    <!-- Link to a custom stylesheet for your website -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <title>Responsive headphones website</title>
+    <!-- Title of the webpage, displayed on the browser tab -->
+  </head>
+  <body>
+    <!-- header section with a class of 'header' and id 'header' -->
+    <header class="header" id="header">
+      <!-- navigation menu with a class of 'nav & container' -->
+      <nav class="nav container">
+        <!-- logo with a class of 'logo' and id 'logo' -->
+        <a href="#" class="nav-logo" id="logo"> JBL </a>
+
+        <div class="nav-menu" id="nav-menu">
+          <ul class="nav-list">
+            <!-- 1. Home Link -->
+            <li class="nav-item">
+              <a href="#home" class="nav-link">Home</a>
+            </li>
+
+            <!-- 2. About Link -->
+            <li class="nav-item">
+              <a href="#about" class="nav-link">About</a>
+            </li>
+
+            <!-- 3. Favorites Link -->
+            <li class="nav-item">
+              <a href="#favorite" class="nav-link">Favorites</a>
+            </li>
+
+            <!-- 4. Models Link -->
+            <li class="nav-item">
+              <a href="#model" class="nav-link">Models</a>
+            </li>
+          </ul>
+
+          <!-- Hamburger menu close button -->
+          <div class="nav-close" id="nav-close">
+            <i class="ri-close-line"></i>
+          </div>
+        </div>
+
+        <!-- Hamburger menu open button -->
+        <div class="nav-toggle" id="nav-toggle">
+          <i class="ri-menu-line"></i>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main content area of the page, with a class of 'main' -->
+    <main class="main">
+      <!-- 'home' section of the page, which may contain the homepage content -->
+      <section class="home section" id="home">
+        <div class="home-container container grid">
+          <div class="home-content">
+            <!-- Image for the homepage, typically used for branding or product -->
+            <img src="/assets/img/h-1.png" alt="Home Image" class="home-img" />
+
+            <!-- Heading for the homepage, with animated letters -->
+            <h1 class="home-title">
+              <span>J</span>
+              <span>B</span>
+              <span>L</span>
+            </h1>
+
+            <!-- Tooltip (a small info box) showing a product name -->
+            <div class="home-tooltip">
+              <img
+                src="/assets/img/tooltip-right.svg"
+                alt="Tooltip Image"
+                class="home-tooltip-img"
+              />
+              <span class="home-tooltip-text"> Tune 770NC </span>
+            </div>
+          </div>
+
+          <!-- Call-to-action button leading to shopping page -->
+          <a href="#" class="home-btn button">
+            Shop Now
+            <i class="ri-play-circle-line"></i>
+          </a>
+
+          <!-- Social media follow section -->
+          <div class="home-social">
+            <span class="social-text"> Follow us on </span>
+
+            <div class="social-links">
+              <!-- Instagram link with an icon -->
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                class="social-link link-1"
+              >
+                <i class="ri-instagram-line"></i>
+              </a>
+
+              <!-- Facebook link with an icon -->
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                class="social-link link-2"
+              >
+                <i class="ri-facebook-box-fill"></i>
+              </a>
+
+              <!-- YouTube link with an icon -->
+              <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                class="social-link link-3"
+              >
+                <i class="ri-youtube-fill"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 'about' section of the page, which may contain information about the website or product -->
+      <section class="about section" id="about">
+        <div class="about-container container grid">
+          <div class="about-data">
+            <h2 class="section-title">About JBL</h2>
+
+            <p class="about-description">
+              JBL is a leading global brand that offers high-quality headphones,
+              earbuds, and accessories. With a focus on innovation, quality, and
+              customer satisfaction, we strive to create products that not only
+              sound great but also make you feel comfortable and connected.
+            </p>
+
+            <!-- Button linking to more detailed information about JBL -->
+            <a href="#" class="button">
+              Learn More
+              <i class="ri-information-line"></i>
+            </a>
+          </div>
+
+          <!-- Image related to the 'About' section -->
+          <img src="/assets/img/ab-1.png" alt="About Image" class="about-img" />
+        </div>
+      </section>
+
+      <!-- 'favorite' section of the page, likely displaying favorite or featured items -->
+      <section class="favorite section" id="favorite">
+        <h2 class="section-title">CHOOSE YOUR FAVORITE</h2>
+
+        <div class="favorite-container">
+          <div class="favorite-swiper swiper">
+            <div class="swiper-wrapper">
+              <!-- Add your favorite items here -->
+              <!-- Favorite item 1 -->
+              <article class="favorite-article swiper-slide">
+                <img
+                  src="/assets/img/f-1.png"
+                  alt="Favorite Image"
+                  class="favorite-img"
+                />
+                <span class="favorite-model">Black Model</span>
+              </article>
+
+              <!-- Favorite item 2 -->
+              <article class="favorite-article swiper-slide">
+                <img
+                  src="/assets/img/f-2.png"
+                  alt="Favorite Image"
+                  class="favorite-img"
+                />
+                <span class="favorite-model"> Blue Model </span>
+              </article>
+
+              <!-- Favorite item 3 -->
+              <article class="favorite-article swiper-slide">
+                <img
+                  src="/assets/img/f-3.png"
+                  alt="Favorite Image"
+                  class="favorite-img"
+                />
+                <span class="favorite-model"> White Model </span>
+              </article>
+
+              <!-- Favorite item 4 -->
+              <article class="favorite-article swiper-slide">
+                <img
+                  src="/assets/img/f-4.png"
+                  alt="Favorite Image"
+                  class="favorite-img"
+                />
+                <span class="favorite-model"> Teal Model </span>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 'model' section, likely showcasing different models or products -->
+      <section class="model section" id="model">
+        <h2 class="section-title">MODEL SPECIFICATIONS</h2>
+
+        <div class="model-container container grid">
+          <div class="model-content">
+            <!-- Image showcasing the product model -->
+            <img
+              src="/assets/img/m-1.png"
+              alt="Model Image"
+              class="model-img"
+            />
+
+            <!-- Tooltip 1, showing key product feature -->
+            <div class="model-tooltip model-tooltip-1">
+              <img
+                src="/assets/img/tooltip-right.svg"
+                alt="Tooltip Image"
+                class="model-tooltip-img"
+              />
+              <span class="model-tooltip-text"> Best Comfort </span>
+            </div>
+
+            <!-- Tooltip 2, showing another product feature -->
+            <div class="model-tooltip model-tooltip-2">
+              <img
+                src="/assets/img/tooltip-right.svg"
+                alt="Tooltip Image"
+                class="model-tooltip-img"
+              />
+              <span class="model-tooltip-text"> Comfortable Fit </span>
+            </div>
+
+            <!-- Tooltip 3, showing another product feature -->
+            <div class="model-tooltip model-tooltip-3">
+              <img
+                src="/assets/img/tooltip-right.svg"
+                alt="Tooltip Image"
+                class="model-tooltip-img"
+              />
+              <span class="model-tooltip-text"> Fast Charging </span>
+            </div>
+
+            <!-- Tooltip 4, showing another product feature -->
+            <div class="model-tooltip model-tooltip-4">
+              <img
+                src="/assets/img/tooltip-right.svg"
+                alt="Tooltip Image"
+                class="model-tooltip-img"
+              />
+              <span class="model-tooltip-text"> Custom Audio </span>
+            </div>
+          </div>
+
+          <!-- Call-to-action button linking to product page -->
+          <a href="#" class="model-btn button">
+            Shop Now
+            <i class="ri-play-circle-line"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- 'sponsor' section, potentially for displaying sponsor logos or partners -->
+      <section class="sponsor section">
+        <div class="sponsor-container container grid">
+          <!-- Sponsor Image 1 -->
+          <img
+            src="/assets/img/sp-1.png"
+            alt="Sponsor Image"
+            class="sponsor-img"
+          />
+
+          <!-- Sponsor Image 2 -->
+          <img
+            src="/assets/img/sp-2.png"
+            alt="Sponsor Image"
+            class="sponsor-img"
+          />
+
+          <!-- Sponsor Image 3 -->
+          <img
+            src="/assets/img/sp-3.png"
+            alt="Sponsor Image"
+            class="sponsor-img"
+          />
+
+          <!-- Sponsor Image 4 -->
+          <img
+            src="/assets/img/sp-4.png"
+            alt="Sponsor Image"
+            class="sponsor-img"
+          />
+        </div>
+      </section>
+    </main>
+
+    <!-- footer section with a class of 'footer' -->
+    <footer class="footer">
+      <!-- footer content -->
+      <div class="footer-container container grid">
+        <div class="f-logo">
+          <!-- Link to the homepage or logo section -->
+          <a href="#" class="footer-logo"> JBL </a>
+        </div>
+
+        <div class="footer-data grid">
+          <!-- First section (Product links) -->
+          <div class="f-l">
+            <!-- Footer title for the products section -->
+            <h3 class="footer-title">Products</h3>
+
+            <!-- List of product-related links -->
+            <ul class="footer-links">
+              <!-- Product link 1 -->
+              <li>
+                <a href="#" class="footer-link"> Headphones </a>
+              </li>
+
+              <!-- Product link 2 -->
+              <li>
+                <a href="#" class="footer-link"> Earbuds </a>
+              </li>
+
+              <!-- Product link 3 -->
+              <li>
+                <a href="#" class="footer-link"> Accessories </a>
+              </li>
+
+              <!-- Product link 4 -->
+              <li>
+                <a href="#" class="footer-link"> Speakers </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Second section (Support links) -->
+          <div class="f-l">
+            <!-- Footer title for the support section -->
+            <h3 class="footer-title">Support</h3>
+
+            <!-- List of support-related links -->
+            <ul class="footer-links">
+              <!-- Support link 1 -->
+              <li>
+                <a href="#" class="footer-link"> Customer Support </a>
+              </li>
+
+              <!-- Support link 2 -->
+              <li>
+                <a href="#" class="footer-link"> Returns & Exchanges </a>
+              </li>
+
+              <!-- Support link 3 -->
+              <li>
+                <a href="#" class="footer-link"> Warranty & Guarantee </a>
+              </li>
+
+              <!-- Support link 4 -->
+              <li>
+                <a href="#" class="footer-link"> Contact Us </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Third section (Subscription form & Social Media Links) -->
+          <div class="footer-group">
+            <!-- Newsletter subscription form -->
+            <form action="#" class="footer-form">
+              <!-- Email input field for subscription -->
+              <input
+                type="email"
+                placeholder="Enter your email"
+                class="footer-input"
+              />
+
+              <!-- Submit button for the subscription form -->
+              <button class="footer-btn button">
+                Subscribe <i class="ri-mail-send-line"></i>
+              </button>
+            </form>
+
+            <!-- Social media links -->
+            <div class="footer-social-media">
+              <!-- Facebook -->
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                class="footer-social-link"
+              >
+                <i class="ri-facebook-line"></i>
+              </a>
+
+              <!-- Twitter -->
+              <a
+                href="https://www.twitter.com/"
+                target="_blank"
+                class="footer-social-link"
+              >
+                <i class="ri-twitter-line"></i>
+              </a>
+
+              <!-- Instagram -->
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                class="footer-social-link"
+              >
+                <i class="ri-instagram-line"></i>
+              </a>
+
+              <!-- YouTube -->
+              <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                class="footer-social-link"
+              >
+                <i class="ri-youtube-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright information -->
+      <span class="copyright">
+        &copy; 2025 <span>JBL</span>. All rights reserved.
+      </span>
+    </footer>
+
+    <a href="#" class="scrollUp-btn" id="scrollUp-btn">
+      <i class="ri-arrow-up-line"></i>
+    </a>
+
+    <!-- Link to an external JavaScript file for ScrollReveal (used for animations when scrolling) -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Link to an external JavaScript file for Swiper (library for sliders) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <!-- Link to a custom JavaScript file for the main logic of the website -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

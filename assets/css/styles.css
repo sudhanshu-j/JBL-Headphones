@@ -1,0 +1,1066 @@
+/*=============== GOOGLE FONTS ===============*/
+/* Importing the Poppins font family from Google Fonts with different font weights */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+/* The :root selector is used to define global CSS variables that can be reused throughout the stylesheet */
+:root {
+  /* Header height variable */
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /* Defining color variables using HSL color model (Hue, Saturation, Lightness) */
+  --first-color: hsl(23, 100%, 50%); /* Main primary color */
+  --gradient-color: linear-gradient(
+    90deg,
+    hsl(23, 4%, 28%) 0%,
+    /* Darker gradient start */ hsl(23, 4%, 8%) 100% /* Darker gradient end */
+  );
+  --white-color: hsl(0, 0%, 100%); /* White color */
+  --text-color: hsl(23, 4%, 60%); /* Text color */
+  --body-color: hsl(23, 12%, 4%); /* Background color */
+  --container-color: hsl(23, 4%, 10%); /* Container background color */
+
+  /*========== Font and typography ==========*/
+  /* Defining font properties */
+  /* Font sizes are based on rem (root em) units, where 1rem = 16px */
+  --body-font: "Poppins", sans-serif; /* Body font is Poppins */
+  --biggest-font-size: 10rem; /* Biggest font size */
+  --h1-font-size: 1.5rem; /* Font size for h1 headings */
+  --h2-font-size: 1.25rem; /* Font size for h2 headings */
+  --h3-font-size: 1rem; /* Font size for h3 headings */
+  --normal-font-size: 0.938rem; /* Normal font size for body text */
+  --small-font-size: 0.813rem; /* Smaller font size */
+  --smaller-font-size: 0.75rem; /* Smallest font size */
+
+  /*========== Font weight ==========*/
+  /* Font weight variables for different text emphasis */
+  --font-regular: 400; /* Regular font weight */
+  --font-medium: 500; /* Medium font weight */
+  --font-semi-bold: 600; /* Semi-bold font weight */
+
+  /*========== z index ==========*/
+  /* Z-index values to control the stacking order of elements */
+  --z-tooltip: 10; /* Tooltip z-index */
+  --z-fixed: 100; /* Fixed elements z-index */
+}
+
+/*========== Responsive typography ==========*/
+/* This media query adjusts font sizes based on screen width (min-width 1150px) */
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 25rem; /* Bigger font size for large screens */
+    --h1-font-size: 2.25rem; /* Font size for h1 headings on large screens */
+    --h2-font-size: 1.5rem; /* Font size for h2 headings on large screens */
+    --h3-font-size: 1.25rem; /* Font size for h3 headings on large screens */
+    --normal-font-size: 1rem; /* Normal font size for body text on large screens */
+    --small-font-size: 0.875rem; /* Smaller font size on large screens */
+    --smaller-font-size: 0.813rem; /* Smallest font size on large screens */
+  }
+}
+
+/*=============== BASE ===============*/
+/* Global base styles that apply to all elements */
+* {
+  box-sizing: border-box; /* Ensures padding and border are included in element's total width/height */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+/* Smooth scroll behavior on the page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body styles */
+body {
+  font-family: var(--body-font); /* Applies the body font */
+  font-size: var(--normal-font-size); /* Applies the default font size */
+  background-color: var(--body-color); /* Sets the background color */
+  color: var(--text-color); /* Sets the text color */
+}
+
+/* Header and heading styles (h1, h2, h3, h4) */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--white-color); /* White color for headings */
+  font-weight: var(--font-semi-bold); /* Semi-bold font weight */
+}
+
+/* Removes default bullet points from unordered lists */
+ul {
+  list-style: none;
+}
+
+/* Removes default underline from links */
+a {
+  text-decoration: none;
+}
+
+/* Image styling */
+img {
+  display: block; /* Removes any unwanted space below the image */
+  max-width: 100%; /* Makes images responsive */
+  height: auto; /* Maintains aspect ratio of images */
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+
+/* A container class that limits the maximum width and adds some margin */
+.container {
+  max-width: 1120px; /* Maximum width of the container */
+  margin-inline: 1.5rem; /* Horizontal margin on both sides */
+}
+
+/* A grid system with a gap between grid items */
+.grid {
+  display: grid; /* Sets grid display */
+  gap: 1.5rem; /* Adds gap between grid items */
+}
+
+/* General section styling with padding at top and bottom */
+.section {
+  padding-block: 5rem 1rem; /* Adds vertical padding */
+}
+
+/* Title of each section with centered text */
+.section-title {
+  font-size: var(--h2-font-size); /* Sets font size */
+  text-align: center; /* Centers the title text */
+  margin-bottom: 1.5rem; /* Adds margin below the title */
+  color: var(--first-color); /* Sets title color */
+}
+
+/* Main content area styling */
+.main {
+  overflow: hidden; /* Prevents content from overflowing (often used with animations like ScrollReveal) */
+}
+
+/*=============== HEADER & NAV ===============*/
+
+/* .header styles the header of the page, making it fixed at the top of the viewport */
+.header {
+  position: fixed; /* Fixes the header at the top */
+  width: 100%; /* Ensures the header spans the entire width of the screen */
+  background-color: transparent; /* Background is transparent */
+  top: 0; /* Positions the header at the top of the page */
+  left: 0; /* Aligns the header to the left */
+  z-index: var(
+    --z-fixed
+  ); /* Sets the z-index to a variable, ensuring it stays on top of other content */
+}
+
+/* .nav styles the navigation menu */
+.nav {
+  height: var(--header-height); /* Sets the height based on a CSS variable */
+  display: flex; /* Applies flexbox layout */
+  justify-content: space-between; /* Distributes space between elements */
+  align-items: center; /* Aligns items vertically in the center */
+}
+
+/* .nav-logo styles the logo in the header */
+.nav-logo {
+  font-size: var(--h2-font-size); /* Font size is set from a variable */
+  font-weight: var(--font-semi-bold); /* Font weight is set from a variable */
+  color: var(--first-color); /* Sets the logo color from a variable */
+}
+
+/* .nav-toggle and .nav-close style the toggle and close icons for the mobile menu */
+.nav-toggle,
+.nav-close {
+  display: flex; /* Makes the icons flexible for easy centering */
+  font-size: 1.5rem; /* Sets the font size of the icons */
+  color: var(--white-color); /* Sets the icon color to white */
+  cursor: pointer; /* Changes cursor to a pointer on hover */
+}
+
+/* Media query for screens smaller than 1150px */
+@media screen and (max-width: 1150px) {
+  /* .nav-menu styles the navigation menu on mobile devices */
+  .nav-menu {
+    position: fixed; /* Fixes the menu position */
+    top: -100%; /* Initially hides the menu off-screen */
+    left: 0; /* Aligns it to the left side */
+    background-color: hsl(23, 12%, 4%, 0.2); /* Semi-transparent background */
+    width: 100%; /* Full width */
+    padding-block: 5.5rem 4.5rem; /* Adds padding to the top and bottom */
+    backdrop-filter: blur(32px); /* Applies a blur effect to the background */
+    -webkit-backdrop-filter: blur(
+      32px
+    ); /* Webkit-specific version of the backdrop filter */
+    transition: top 0.5s; /* Smooth transition for sliding the menu in */
+  }
+}
+
+/* .nav-list styles the list of navigation links */
+.nav-list {
+  text-align: center; /* Centers the text inside */
+  display: flex; /* Uses flexbox to layout items */
+  flex-direction: column; /* Stacks items vertically */
+  row-gap: 2.5rem; /* Adds space between each item */
+}
+
+/* .nav-link styles each navigation link */
+.nav-link {
+  color: var(--white-color); /* Sets link color to white */
+  font-weight: var(--font-medium); /* Font weight from a variable */
+  transition: color 0.5s; /* Smooth transition for color change */
+}
+
+/* .nav-link:hover changes the color on hover */
+.nav-link:hover {
+  color: var(--first-color); /* Changes the link color on hover */
+}
+
+/* .nav-close styles the close icon in the menu */
+.nav-close {
+  position: absolute; /* Positions the close button absolutely within the menu */
+  top: 1rem; /* Positions the button 1rem from the top */
+  right: 1.5rem; /* Positions the button 1.5rem from the right */
+}
+
+/* .show-menu is applied to show the menu by changing its position */
+.show-menu {
+  top: 0; /* Moves the menu into view */
+}
+
+/* .scroll-header::after adds a blurred overlay behind the header when scrolling */
+.scroll-header::after {
+  content: ""; /* No content is added, just an effect */
+  position: absolute; /* Positions the overlay */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: hsl(23, 12%, 4%, 0.2); /* Semi-transparent background */
+  backdrop-filter: blur(32px); /* Applies the blur effect */
+  -webkit-backdrop-filter: blur(
+    32px
+  ); /* Webkit-specific version of the backdrop filter */
+  top: 0; /* Aligns at the top */
+  left: 0; /* Aligns to the left */
+  z-index: -1; /* Places it behind the header */
+}
+
+/* .active-link applies a color change to active navigation links */
+.active-link {
+  color: var(--first-color); /* Active link color */
+}
+
+/*=============== HOME ===============*/
+
+/* .home-container styles the container for the home section */
+.home-container {
+  position: relative; /* Allows positioning of child elements */
+  padding-block: 7rem 1rem; /* Adds padding to the top and bottom */
+  row-gap: 2.5rem; /* Adds space between elements */
+}
+
+/* .home-content styles the content within the home section */
+.home-content {
+  position: relative; /* Allows absolute positioning of child elements */
+  display: grid; /* Uses grid layout */
+  justify-self: center; /* Centers the content horizontally */
+}
+
+/* .home-img styles the image in the home section */
+.home-img {
+  width: 220px; /* Sets the width of the image */
+}
+
+/* .home-title styles the title in the home section */
+.home-title {
+  font-size: var(--biggest-font-size); /* Font size is set from a variable */
+  display: flex; /* Uses flexbox layout */
+  column-gap: 0.25rem; /* Adds space between title characters */
+  color: var(--first-color); /* Sets the title color */
+  position: absolute; /* Positions the title absolutely */
+  top: -2rem; /* Moves it above its default position */
+  justify-self: center; /* Centers it horizontally */
+}
+
+/* .home-title span:nth-child(2) positions the second span of the title behind the others */
+.home-title span:nth-child(2) {
+  z-index: -1; /* Places the second span behind the others */
+}
+
+/* .home-tooltip styles the tooltip in the home section */
+.home-tooltip {
+  position: absolute; /* Positions the tooltip absolutely */
+  top: -0.5rem; /* Positions it slightly above the image */
+  right: 1.5rem; /* Moves it to the right */
+}
+
+/* .home-tooltip-img styles the tooltip image */
+.home-tooltip-img {
+  width: 60px; /* Sets the width of the tooltip image */
+}
+
+/* .home-tooltip-text styles the text inside the tooltip */
+.home-tooltip-text {
+  position: absolute; /* Positions the tooltip text */
+  transform: translate(60px, -40px); /* Moves the text with a transform */
+  background: var(--gradient-color); /* Gradient background */
+  color: var(--white-color); /* White text color */
+  padding: 0.25rem 0.75rem; /* Adds padding inside the tooltip */
+  border-radius: 4rem; /* Rounds the corners */
+  font-size: var(--small-font-size); /* Sets the font size */
+  font-weight: var(--font-medium); /* Sets font weight */
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* .home-social styles the social media section */
+.home-social {
+  display: grid; /* Uses grid layout */
+  justify-items: center; /* Centers the social media items */
+  row-gap: 6rem; /* Adds space between social media items */
+  position: absolute; /* Positions it absolutely */
+  top: 9rem; /* Positions it below the home title */
+  left: -1.5rem; /* Shifts it to the left */
+}
+
+/* .social-text styles the text next to the social media icons */
+.social-text {
+  position: relative; /* Positions the text relatively */
+  rotate: 90deg; /* Rotates the text by 90 degrees */
+  font-size: var(--small-font-size); /* Font size is set from a variable */
+  font-weight: var(--font-medium); /* Font weight from a variable */
+}
+
+/* .social-text::after adds a horizontal line after the social text */
+.social-text::after {
+  content: ""; /* No content, just a line */
+  width: 48px; /* Sets the width of the line */
+  height: 1px; /* Sets the height of the line */
+  background-color: var(--text-color); /* Line color */
+  position: absolute; /* Positions the line */
+  top: 0; /* Aligns it to the top */
+  bottom: 0; /* Aligns it to the bottom */
+  margin-block: auto; /* Centers the line vertically */
+  right: -64px; /* Moves it to the right */
+}
+
+/* .social-links styles the social media links */
+.social-links {
+  display: grid; /* Uses grid layout */
+  row-gap: 0.75rem; /* Adds space between the links */
+}
+
+/* .social-link styles each social media link */
+.social-link {
+  font-size: 1.25rem; /* Sets the font size */
+  color: var(--text-color); /* Sets the text color */
+  transition: color 0.5s; /* Smooth transition for color change */
+}
+
+/*=============== BUTTON ===============*/
+
+/* .social-link:hover styles the social media link on hover */
+.social-link:hover {
+  color: var(--first-color); /* Changes the color of the link when hovered */
+}
+
+/* .home-btn centers the button horizontally inside its container */
+.home-btn {
+  justify-self: center; /* Centers the button horizontally */
+}
+
+/*=============== BUTTON ===============*/
+
+/* .button styles all buttons on the site */
+.button {
+  background: var(--gradient-color); /* Sets the background to a gradient */
+  padding: 0.75rem 1.5rem; /* Adds padding inside the button */
+  border-radius: 4rem; /* Gives the button rounded corners */
+  color: var(--white-color); /* Sets the text color to white */
+  font-weight: var(--font-semi-bold); /* Sets the font weight to semi-bold */
+  display: inline-flex; /* Uses inline-flex for flexible layout */
+  align-items: center; /* Vertically centers items inside the button */
+  justify-content: center; /* Horizontally centers items inside the button */
+  column-gap: 0.5rem; /* Adds space between the icon and text in the button */
+  transition: box-shadow 0.5s; /* Smooth transition for the box shadow effect */
+}
+
+/* .button i styles the icon inside the button */
+.button i {
+  font-size: 2rem; /* Sets the icon's font size */
+  font-weight: initial; /* Resets the font weight of the icon */
+  color: var(--first-color); /* Sets the icon color */
+}
+
+/* .button:hover applies a shadow effect when the button is hovered */
+.button:hover {
+  box-shadow: 0 12px 32px hsl(23, 100%, 50%, 0.15); /* Adds a shadow effect */
+}
+
+/*=============== ABOUT ===============*/
+
+/* .about-container adds spacing between items in the About section */
+.about-container {
+  row-gap: 3.5rem; /* Adds space between rows in the container */
+}
+
+/* .about-data centers the text inside the About section */
+.about-data {
+  text-align: center; /* Centers the text */
+}
+
+/* .about-description adds spacing below the description text */
+.about-description {
+  margin-bottom: 2.5rem; /* Adds margin below the description */
+}
+
+/* .about-img styles the image in the About section */
+.about-img {
+  width: 280px; /* Sets the image width */
+  justify-self: center; /* Centers the image horizontally */
+}
+
+/*=============== FAVORITE ===============*/
+
+/* .favorite-container styles the container of the favorite section */
+.favorite-container {
+  padding-top: 2rem; /* Adds padding to the top of the section */
+}
+
+/* .favorite-article styles each article in the favorite section */
+.favorite-article {
+  width: 220px; /* Sets the width of the article */
+  display: grid; /* Uses grid layout for the article */
+  justify-items: center; /* Centers the items in the grid */
+  filter: blur(8px); /* Applies a blur effect to the article */
+  scale: 0.8; /* Reduces the size of the article */
+  transition: filter 0.4s, scale 0.4s; /* Smooth transitions for blur and scaling effects */
+}
+
+/* .favorite-img styles the image in the favorite section */
+.favorite-img {
+  width: 220px; /* Sets the width of the image */
+  margin-bottom: 1.5rem; /* Adds space between the image and text */
+}
+
+/* .favorite-model styles the model name in the favorite section */
+.favorite-model {
+  background: var(--gradient-color); /* Sets a gradient background */
+  padding: 0.5rem 1.5rem; /* Adds padding inside the model name */
+  border-radius: 4rem; /* Rounds the corners of the model name */
+  color: var(--white-color); /* Sets the text color to white */
+}
+
+/* Swiper class: removes the blur and scales up the active slide */
+.swiper-slide-active,
+.swiper-slide-duplicate-active {
+  filter: blur(0px); /* Removes the blur effect */
+  scale: 1; /* Restores the original scale of the slide */
+}
+
+/*=============== MODEL ===============*/
+
+/* .model-container adds padding and row gap in the model section */
+.model-container {
+  padding-top: 2rem; /* Adds padding to the top */
+  row-gap: 2.5rem; /* Adds spacing between items */
+}
+
+/* .model-content positions the content inside the model section */
+.model-content {
+  position: relative; /* Allows positioning of child elements */
+  justify-self: center; /* Centers the content horizontally */
+}
+
+/* .model-img styles the model image */
+.model-img {
+  width: 280px; /* Sets the width of the model image */
+}
+
+/* .model-tooltip styles the tooltip in the model section */
+.model-tooltip {
+  width: 60px; /* Sets the width of the tooltip */
+}
+
+/* .model-tooltip-text styles the text inside the tooltip */
+.model-tooltip-text {
+  position: absolute; /* Positions the tooltip text absolutely */
+  transform: translate(60px, -40px); /* Translates the text for positioning */
+  background: var(--gradient-color); /* Sets a gradient background */
+  color: var(--white-color); /* Sets the text color to white */
+  padding: 0.25rem 0.75rem; /* Adds padding inside the tooltip */
+  border-radius: 4rem; /* Rounds the corners of the tooltip */
+  font-size: var(--small-font-size); /* Sets the font size */
+  font-weight: var(--font-medium); /* Sets the font weight */
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* .model-tooltip-1 and .model-tooltip-2 flip the tooltip horizontally */
+.model-tooltip-1,
+.model-tooltip-2 {
+  transform: scaleX(-1); /* Flips the tooltip horizontally */
+}
+
+/* .model-tooltip-1 .model-tooltip-text and .model-tooltip-2 .model-tooltip-text flip the text as well */
+.model-tooltip-1 .model-tooltip-text,
+.model-tooltip-2 .model-tooltip-text {
+  transform: translate(60px, -40px) scaleX(-1); /* Translates and flips the text */
+}
+
+/* .model-tooltip sets the position of the tooltip */
+.model-tooltip {
+  position: absolute; /* Positions the tooltip absolutely */
+}
+
+/* .model-tooltip-1, .model-tooltip-2, .model-tooltip-3, .model-tooltip-4 position the tooltips */
+.model-tooltip-1 {
+  top: 5.5rem; /* Positions the first tooltip */
+  left: 5rem; /* Positions the first tooltip */
+}
+
+.model-tooltip-2 {
+  top: 1rem; /* Positions the second tooltip */
+  right: 1.5rem; /* Positions the second tooltip */
+}
+
+.model-tooltip-3 {
+  bottom: 1.8rem; /* Positions the third tooltip */
+  left: 3.5rem; /* Positions the third tooltip */
+}
+
+.model-tooltip-4 {
+  bottom: 7rem; /* Positions the fourth tooltip */
+  right: 5rem; /* Positions the fourth tooltip */
+}
+
+/* .model-btn centers the button in the model section */
+.model-btn {
+  justify-self: center; /* Centers the button horizontally */
+}
+
+/*=============== SPONSOR ===============*/
+
+/* .sponsor-container defines the layout of the sponsor section */
+.sponsor-container {
+  padding-block: 0.5rem 4.5rem; /* Adds padding to the top and bottom */
+  grid-template-columns: repeat(
+    2,
+    max-content
+  ); /* Creates two columns with the width of the content */
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically */
+  gap: 5rem 4rem; /* Adds space between the items */
+}
+
+/* .sponsor-img styles the sponsor images */
+.sponsor-img {
+  width: 100px; /* Sets the width of the sponsor images */
+  transition: transform 0.5s; /* Smooth transition for scaling */
+}
+
+/* .sponsor-img:hover applies a scaling effect when the image is hovered */
+.sponsor-img:hover {
+  transform: scale(1.1); /* Scales up the image */
+}
+
+/*=============== FOOTER ===============*/
+
+/* .footer styles the footer section */
+.footer {
+  padding-block: 2rem; /* Adds padding to the top and bottom */
+  overflow: hidden; /* Ensures content inside the footer does not overflow */
+}
+
+/* .footer-container adds spacing between items in the footer */
+.footer-container {
+  row-gap: 4rem; /* Adds space between rows in the container */
+}
+
+/* .footer-logo styles the logo in the footer */
+.footer-logo {
+  font-size: var(--h2-font-size); /* Sets the logo font size */
+  font-weight: var(--font-semi-bold); /* Sets the font weight to semi-bold */
+  color: var(--first-color); /* Sets the logo color */
+}
+
+/* .footer-data styles the grid layout in the footer */
+.footer-data {
+  grid-template-columns: repeat(2, 1fr); /* Creates two equal-width columns */
+  row-gap: 4rem; /* Adds space between rows */
+}
+
+/* .footer-title styles the footer section titles */
+.footer-title {
+  font-size: var(--h3-font-size); /* Sets the title font size */
+  margin-bottom: 1rem; /* Adds margin below the title */
+}
+
+/* .footer-links styles the list of footer links */
+.footer-links {
+  display: grid; /* Uses grid layout for the links */
+  row-gap: 0.75rem; /* Adds space between each link */
+}
+
+/* .footer-link styles each footer link */
+.footer-link {
+  color: var(--text-color); /* Sets the link color */
+  transition: color 0.5s; /* Smooth transition for color change */
+}
+
+/* .footer-link:hover changes the color of the link when hovered */
+.footer-link:hover {
+  color: var(--first-color); /* Changes the color to the primary color */
+}
+
+/* .footer-group spans across both columns in the footer */
+.footer-group {
+  grid-column: 1/3; /* Makes the group span two columns */
+}
+
+/* .footer-form styles the contact form in the footer */
+.footer-form {
+  display: grid; /* Uses grid layout for the form */
+  row-gap: 1rem; /* Adds space between form elements */
+  margin-bottom: 2rem; /* Adds margin at the bottom of the form */
+}
+
+/* .footer-input and .footer-btn style the form input and button */
+.footer-input,
+.footer-btn {
+  font-size: var(--normal-font-size); /* Sets the font size */
+  font-family: var(--body-color); /* Sets the font family */
+  border: none; /* Removes the default border */
+  outline: none; /* Removes the default outline */
+}
+
+/* .footer-input styles the input field in the footer form */
+.footer-input {
+  width: 100%; /* Makes the input take up the full width */
+  padding: 1.15rem 1.25rem; /* Adds padding inside the input */
+  border-radius: 4rem; /* Rounds the corners */
+  background-color: var(--container-color); /* Sets the background color */
+  color: var(--text-color); /* Sets the text color */
+}
+
+/* .footer-input::placeholder styles the placeholder text inside the input */
+.footer-input::placeholder {
+  color: var(--text-color); /* Sets the placeholder color */
+}
+
+/* .footer-btn styles the submit button in the footer form */
+.footer-btn {
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+}
+
+/* .footer-social-media styles the social media links in the footer */
+.footer-social-media {
+  display: flex; /* Uses flexbox to arrange the social links */
+  justify-content: center; /* Centers the links */
+  column-gap: 1rem; /* Adds space between each link */
+}
+
+/* .footer-social-link styles each social media link */
+.footer-social-link {
+  color: var(--white-color); /* Sets the color of the social links */
+  font-size: 1.25rem; /* Sets the font size */
+  transition: color 0.5s; /* Smooth transition for color change */
+}
+
+/* .footer-social-link:hover changes the color when hovered */
+.footer-social-link:hover {
+  color: var(--first-color); /* Changes the color to the primary color */
+}
+
+/* .copyright styles the copyright section */
+.copyright {
+  display: block; /* Makes the copyright section block-level */
+  margin-top: 4rem; /* Adds margin to the top */
+  font-size: var(--small-font-size); /* Sets the font size */
+  text-align: center; /* Centers the text */
+}
+
+/* .copyright span styles the span inside the copyright */
+.copyright span {
+  color: var(--first-color); /* Changes the span text color */
+}
+
+/*=============== SCROLL BAR ===============*/
+
+/* Custom scrollbar styles for Webkit browsers (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+  width: 12px; /* Sets the width of the scrollbar */
+  border-radius: 0.6rem; /* Rounds the corners of the scrollbar */
+  background-color: #282625; /* Sets the background color of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.6rem; /* Rounds the corners of the scrollbar thumb */
+  background-color: #504c49; /* Sets the color of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6a6562; /* Changes the thumb color when hovered */
+}
+
+/*=============== SCROLL UP ===============*/
+
+/* Scroll-up button, positioned at the bottom right of the page */
+.scrollUp-btn {
+  position: fixed; /* Fixes the button in place, regardless of scrolling */
+  right: 1rem; /* 1rem from the right edge of the viewport */
+  bottom: -50%; /* Initially positions the button out of view (below the viewport) */
+  background: var(--gradient-color); /* Sets the background gradient color */
+  display: inline-flex; /* Allows flexible layout for the button content */
+  color: var(--white-color); /* Sets the button text color to white */
+  font-size: 1.25rem; /* Button text size */
+  padding: 6px; /* Padding around the button content */
+  border-radius: 0.25rem; /* Rounds the corners of the button */
+  z-index: var(--z-tooltip); /* Places the button above other elements */
+  transition: bottom 0.5s, transform 0.5s; /* Smooth transition for position and transformation */
+}
+
+/* Hover effect for the button */
+.scrollUp-btn:hover {
+  transform: translateY(
+    -0.5rem
+  ); /* Moves the button slightly up when hovered */
+}
+
+/* Class that shows the scroll-up button when triggered */
+.show-scroll {
+  bottom: 3rem; /* Moves the button into view when the class is applied */
+}
+
+/*=============== BREAKPOINTS ===============*/
+
+/* For small devices (max-width: 380px), adjusts layout and font sizes */
+@media screen and (max-width: 380px) {
+  .container {
+    margin-inline: 1rem; /* Adds horizontal margin to container */
+  }
+
+  .home-img {
+    width: 180px; /* Shrinks the home image */
+  }
+
+  .home-title {
+    font-size: 8rem; /* Reduces the font size of the home title */
+  }
+
+  .model-img {
+    width: 220px; /* Shrinks model image */
+  }
+
+  .model-tooltip-text {
+    font-size: var(--smaller-font-size); /* Smaller tooltip text */
+    transform: translate(42px, -40px); /* Adjusts tooltip position */
+  }
+
+  .model-tooltip-1 .model-tooltip-text,
+  .model-tooltip-2 .model-tooltip-text {
+    transform: translate(40px, -40px) scaleX(-1); /* Flips tooltip horizontally */
+  }
+
+  .model-tooltip-1 {
+    top: 3rem; /* Adjusts the position of tooltip 1 */
+    left: 3.5rem; /* Adjusts the left position */
+  }
+
+  .model-tooltip-2 {
+    top: 0; /* Moves tooltip 2 to the top */
+  }
+
+  .model-tooltip-3 {
+    bottom: 2rem; /* Adjusts position of tooltip 3 */
+    left: 2.7rem; /* Adjusts left position */
+  }
+
+  .model-tooltip-4 {
+    right: 4rem; /* Adjusts position of tooltip 4 */
+    bottom: 6rem; /* Adjusts position of tooltip 4 */
+  }
+
+  .sponsor-container {
+    gap: 4rem 2rem; /* Adjusts the gap between sponsor items */
+  }
+
+  .footer-title {
+    font-size: var(--small-font-size); /* Reduces footer title font size */
+  }
+
+  .footer-link {
+    font-size: var(--smaller-font-size); /* Reduces footer link font size */
+  }
+}
+
+/* For medium devices (min-width: 576px), adjusts layout for better readability */
+@media screen and (min-width: 576px) {
+  .about-container {
+    grid-template-columns: 380px; /* Sets a single column layout */
+    justify-content: center; /* Centers the content */
+  }
+
+  .footer-data {
+    grid-template-columns: repeat(
+      3,
+      max-content
+    ); /* Makes the footer layout 3-column */
+  }
+
+  .footer-group {
+    grid-column: initial; /* Resets the column span of the footer group */
+  }
+
+  .footer-title {
+    font-size: var(--small-font-size); /* Reduces font size of footer titles */
+  }
+
+  .footer-link {
+    font-size: var(--smaller-font-size); /* Reduces font size of footer links */
+  }
+}
+
+/* For larger devices (min-width: 768px) like tablets and small laptops */
+@media screen and (min-width: 768px) {
+  .home-img {
+    width: 320px; /* Slightly larger home image */
+  }
+
+  .home-title {
+    font-size: 16rem; /* Increases home title font size */
+    top: -4rem; /* Adjusts title position */
+  }
+
+  .home-social {
+    top: 0;
+    bottom: 0;
+    align-content: center; /* Centers social media icons */
+  }
+
+  .sponsor-container {
+    grid-template-columns: repeat(
+      4,
+      max-content
+    ); /* Four-column grid for sponsor section */
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(
+      2,
+      max-content
+    ); /* Two-column footer layout */
+    justify-content: space-around; /* Distributes footer content evenly */
+  }
+
+  .footer-data {
+    column-gap: 4rem; /* Adds spacing between footer columns */
+  }
+}
+
+/* For extra-large devices (min-width: 1150px) like desktops */
+@media screen and (min-width: 1150px) {
+  /* Apply styles for large screen devices (desktop or large laptops) */
+
+  .container {
+    margin-inline: auto; /* Centers the container horizontally */
+  }
+
+  .section {
+    padding-block: 7rem 2rem; /* Adds vertical padding to sections */
+  }
+
+  .section-title {
+    font-size: var(
+      --h1-font-size
+    ); /* Uses the custom h1 font size for section titles */
+  }
+
+  .nav {
+    height: calc(
+      var(--header-height) + 2rem
+    ); /* Sets the height of the navigation bar, adding extra padding to the height */
+  }
+
+  .nav-toggle,
+  .nav-close {
+    display: none; /* Hides the navigation toggle and close buttons, typically used in mobile versions */
+  }
+
+  .nav-list {
+    flex-direction: row; /* Changes the navigation list to display items horizontally (row) */
+    column-gap: 4.5rem; /* Adds space between navigation items */
+  }
+
+  .home-container {
+    position: relative; /* Allows the container to be positioned relative to its parent */
+  }
+
+  .home-img {
+    width: 500px; /* Sets the width of the home image */
+  }
+
+  .home-title {
+    font-size: var(
+      --biggest-font-size
+    ); /* Uses the largest font size for the home page title */
+    top: -6.5rem; /* Offsets the title vertically */
+    column-gap: 1rem; /* Adds horizontal spacing between elements (image and title) */
+    z-index: -1; /* Places the title behind other elements */
+  }
+
+  .home-tooltip {
+    right: 6rem; /* Positions the tooltip 6rem from the right edge */
+    top: 0.5rem; /* Positions the tooltip 0.5rem from the top edge */
+  }
+
+  .home-tooltip-img {
+    width: initial; /* Ensures the image retains its natural width */
+  }
+
+  .home-tooltip-text {
+    font-size: var(
+      --normal-font-size
+    ); /* Uses a normal font size for the tooltip text */
+    transform: translate(
+      82px,
+      -52px
+    ); /* Offsets the tooltip text to adjust positioning */
+  }
+
+  .social-text {
+    font-size: var(
+      --normal-font-size
+    ); /* Sets a normal font size for the social text */
+  }
+
+  .social-links {
+    row-gap: 1rem; /* Adds vertical spacing between social media links */
+    margin-top: 1rem; /* Adds space above the social media links */
+  }
+
+  .social-link {
+    font-size: 1.5rem; /* Increases the size of the social media links */
+  }
+
+  .home-btn {
+    position: absolute; /* Positions the home button absolutely inside its parent */
+    bottom: 4.5rem; /* Positions the button 4.5rem from the bottom of the parent */
+  }
+
+  .about-container {
+    grid-template-columns: 400px 500px; /* Creates a two-column grid layout with specified column widths */
+    align-items: center; /* Vertically centers items in the container */
+    column-gap: 5rem; /* Adds horizontal space between columns */
+  }
+
+  .about-data .section-title,
+  .about-data {
+    text-align: initial; /* Aligns the text to the left */
+  }
+
+  .about-description {
+    margin-bottom: 3.5rem; /* Adds bottom margin to the about description */
+  }
+
+  .about-img {
+    width: 500px; /* Sets the width of the about image */
+  }
+
+  .favorite-container {
+    max-width: 1100px; /* Restricts the container's width to 1100px */
+    margin-inline: auto; /* Centers the container horizontally */
+  }
+
+  .favorite-img {
+    width: 500px; /* Sets the width of the favorite image */
+  }
+
+  .model-img {
+    width: 500px; /* Sets the width of the model image */
+  }
+
+  .model-tooltip-img {
+    width: initial; /* Ensures the model tooltip image retains its natural size */
+  }
+
+  .model-tooltip-text {
+    font-size: var(
+      --normal-font-size
+    ); /* Uses a normal font size for the model tooltip text */
+    padding: 0.5rem 1.25rem; /* Adds padding around the tooltip text */
+    transform: translate(82px, -56px); /* Adjusts the tooltip text position */
+  }
+
+  .model-tooltip-1 {
+    top: 9rem; /* Positions the tooltip 9rem from the top */
+    left: 11.5rem; /* Positions the tooltip 11.5rem from the left */
+  }
+
+  .model-tooltip-1 .model-tooltip-text {
+    transform: translate(60px, -45px) scaleX(-1); /* Reflects the tooltip text horizontally */
+  }
+
+  .model-tooltip-2 {
+    top: 5.5rem; /* Positions the second tooltip 5.5rem from the top */
+    right: 0rem; /* Positions the tooltip flush with the right edge */
+    transform: initial; /* Resets the tooltip text transform */
+  }
+
+  .model-tooltip-2 .model-tooltip-text {
+    transform: translate(60px, -45px); /* Offsets the tooltip text */
+  }
+
+  .model-tooltip-3 {
+    transform: scaleX(-1); /* Reflects the tooltip horizontally */
+    bottom: 5rem; /* Positions the tooltip 5rem from the bottom */
+    left: 1.8rem; /* Positions the tooltip 1.8rem from the left */
+  }
+
+  .model-tooltip-3 .model-tooltip-text {
+    transform: translate(60px, -45px) scaleX(-1); /* Reflects and offsets the tooltip text */
+  }
+
+  .model-tooltip-4 {
+    right: 8rem; /* Positions the tooltip 8rem from the right */
+    bottom: 9rem; /* Positions the tooltip 9rem from the bottom */
+  }
+
+  .model-tooltip-4 .model-tooltip-text {
+    transform: translate(60px, -45px); /* Offsets the tooltip text */
+  }
+
+  .sponsor-container {
+    column-gap: 7.5rem; /* Adds horizontal spacing between sponsor elements */
+    padding-bottom: 6rem; /* Adds bottom padding to the sponsor section */
+  }
+
+  .footer {
+    padding-bottom: 3rem; /* Adds bottom padding to the footer */
+  }
+
+  .footer-data {
+    column-gap: 6rem; /* Adds horizontal spacing between footer data items */
+  }
+
+  .footer-form {
+    grid-template-columns: 1fr max-content; /* Creates a grid with two columns: one for content and one for form elements */
+    background-color: var(
+      --container-color
+    ); /* Sets the background color of the footer form */
+    padding: 0.5rem; /* Adds padding around the form elements */
+    border-radius: 4rem; /* Rounds the form's corners */
+    width: 390px; /* Sets the form's width */
+  }
+
+  .footer-social-media {
+    column-gap: 1.5rem; /* Adds horizontal spacing between social media links in the footer */
+  }
+
+  .footer-social-link {
+    font-size: 1.5rem; /* Increases the font size for footer social media links */
+  }
+
+  .copyright {
+    margin-top: 7rem; /* Adds space above the copyright section */
+  }
+
+  .scrollUp-btn {
+    right: 3rem; /* Positions the "scroll up" button 3rem from the right edge */
+  }
+}

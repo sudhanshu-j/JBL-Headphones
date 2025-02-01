@@ -6,7 +6,7 @@ Welcome to the **JBL-Headphones** project! This project utilizes HTML, CSS, and 
 
 ## 🌍 Live Demo
 
-Check out the live demo of this project [here](jblheadphoneshub.netlify.app). Enjoy exploring the features and functionality!
+Check out the live demo of this project [here](https://jblheadphoneshub.netlify.app/). Enjoy exploring the features and functionality!
 
 ---
 
